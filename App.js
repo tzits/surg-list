@@ -7,6 +7,8 @@ import { createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import ListScreen from './screens/ListScreen';
 import SubmitScreen from './screens/SubmitScreen';
 
+import Ionicons from '@expo/vector-icons/Ionicons'
+
 export default function App() {
 
   const Stack = createNativeStackNavigator()
@@ -15,8 +17,11 @@ export default function App() {
   const BottomNav = () => {
     return (
       <BottomTab.Navigator>
-        <BottomTab.Screen name='Surgery List' component={ListScreen} />
-        <BottomTab.Screen name='Add Surgery' component={SubmitScreen} />
+        <BottomTab.Screen name='Surgery List' component={ListScreen} options={{tabBarIcon: () => (
+          <Ionicons name="list" size='30' />)}} />
+        <BottomTab.Screen name='Add Surgery' component={SubmitScreen} options={{tabBarIcon: () => (
+          <Ionicons name="add-outline" size='30' />
+        )}} />
       </BottomTab.Navigator>
     )
   }
